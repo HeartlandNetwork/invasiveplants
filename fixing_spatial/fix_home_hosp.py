@@ -14,7 +14,6 @@
 # C:\Users\GRowell\invasive_plants
 
 import pandas as pd
-import matplotlib.pyplot as plt
 
 
 # set option to display all data
@@ -54,7 +53,7 @@ print(df_home.head(3))
 print("---------------------------------")
 
 
-# this script is fixing hosp and home
+# this script is fixing hosp and home <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 # complete this and test in Power BI
 # if its good, reload published csv and filter out old
 # home and hosp and insert new home and hosp
