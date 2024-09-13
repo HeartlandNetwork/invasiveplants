@@ -2,19 +2,100 @@
 
 ###############################################################
 #
-#   spatial_updates.py
+#   view_home_hosp_coord.py
 #   correcting lat/long dd for HOME and HOCU
 #   in invasive_plants data package
+#   this script is to view the distributions of
+#   decimal degree latitudes and longitudes
+#   for HOME and HOSP - to be used before and
+#   after corrections are made
 #
-#   Gareth Rowell - 20240909
+#   Gareth Rowell - 20240913
 #
 ###############################################################
 
 # start the IPython session here:
 # C:\Users\GRowell\invasive_plants
 
+
 import pandas as pd
 import matplotlib.pyplot as plt
+
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+
+df_inv = pd.read_csv("HTLN_InvasivePlants_Monitoring.csv")
+
+#LatitudeInDecimalDegrees
+
+df_inv["LatitudeInDecimalDegrees"].plot.hist()
+plt.xlabel("Latitude")
+plt.ylabel("Frequency")
+plt.title("Error Detection")
+plt.show()
+
+# need to filter for hosp and home
+
+df_home = df_inv[df_inv["ParkCode"] == "HOME"]
+
+df_home["LatitudeInDecimalDegrees"].plot.hist()
+plt.xlabel("Latitude")
+plt.ylabel("Frequency")
+plt.title("Error Detection")
+plt.show()
+
+df_home["LongitudeInDecimalDegrees"].plot.hist()
+plt.xlabel("Longitude")
+plt.ylabel("Frequency")
+plt.title("Error Detection")
+plt.show()
+
+df_hosp = df_inv[df_inv["ParkCode"] == "HOSP"]
+
+df_hosp["LatitudeInDecimalDegrees"].plot.hist()
+plt.xlabel("Latitude")
+plt.ylabel("Frequency")
+plt.title("Error Detection")
+plt.show()
+
+df_hosp["LongitudeInDecimalDegrees"].plot.hist()
+plt.xlabel("Longitude")
+plt.ylabel("Frequency")
+plt.title("Error Detection")
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # set option to display all data
@@ -27,10 +108,6 @@ import matplotlib.pyplot as plt
 df_pub = pd.read_csv("HTLN_InvasivePlants_Monitoring.csv")
 df_hosp = pd.read_csv("HospInpCenterPts_corr.csv")
 df_home = pd.read_csv("HomeInpCenterPts_corr.csv")
-
-LatitudeInDecimalDegrees
-
-df["LatitudeInDecimalDegrees"].plot.hist
 
 # 
 # select columns
@@ -58,7 +135,7 @@ print(df_home.head(3))
 print("---------------------------------")
 
 
-# this script is fixing hosp and home
+# this script is fixing hosp and home <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 # complete this and test in Power BI
 # if its good, reload published csv and filter out old
 # home and hosp and insert new home and hosp
