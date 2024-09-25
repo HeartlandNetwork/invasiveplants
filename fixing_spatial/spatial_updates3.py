@@ -2,8 +2,9 @@
 
 ###############################################################
 #
-#   spatial_updates2.py
-#   correcting lat/long dd for HOME and HOCU
+#   spatial_updates3.py
+#   importing new thru 2023 
+#   and fixing spatial coordinates
 #   in invasive_plants data package
 #
 #   Gareth Rowell - 20240925
@@ -18,15 +19,53 @@ import matplotlib.pyplot as plt
 
 
 # set option to display all data
-#pd.set_option('display.max_rows', None)
-#pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
 
 
-# load data
+# load spatial center points 
 
-df_pub = pd.read_csv("HTLN_InvasivePlants_Monitoring.csv")
-df_hosp = pd.read_csv("HospInpCenterPts_corr.csv")
-df_home = pd.read_csv("HomeInpCenterPts_corr.csv")
+df_arpo = pd.read_csv("ArpoInpCenterPts.csv")
+df_cuva = pd.read_csv("CuvaInpCenterPts.csv")
+df_efmo = pd.read_csv("EfmoInpCenterPts.csv")
+df_gwca = pd.read_csv("GwcaInpCenterPts.csv")
+df_heho = pd.read_csv("HehoInpCenterPts.csv")
+df_hocu = pd.read_csv("HocuInpCenterPts.csv")
+df_home = pd.read_csv("HomeInpCenterPts.csv")
+df_hosp = pd.read_csv("HospInpCenterPts.csv")
+df_libo = pd.read_csv("LiboInpCenterPts.csv")
+df_peri = pd.read_csv("PeriInpCenterPts.csv")
+df_pipe = pd.read_csv("PipeInpCenterPts.csv")
+df_tapr = pd.read_csv("TaprInpCenterPts.csv")
+df_wicr = pd.read_csv("WicrInpCenterPts.csv")
+
+
+df_list = [df_arpo, df_cuva, df_efmo]
+
+
+# concatenate all 
+
+df_all = pd.concat(df_list, ignore_index=True)
+
+print(union_df)
+
+df_efmo = pd.read_csv("EfmoInpCenterPts.csv")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 LatitudeInDecimalDegrees
 
