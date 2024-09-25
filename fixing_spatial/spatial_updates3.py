@@ -40,16 +40,13 @@ df_tapr = pd.read_csv("TaprInpCenterPts.csv")
 df_wicr = pd.read_csv("WicrInpCenterPts.csv")
 
 
-df_list = [df_arpo, df_cuva, df_efmo]
-
-
 # concatenate all 
 
-df_all = pd.concat(df_list, ignore_index=True)
+df_all = pd.concat([df_arpo, df_cuva, df_efmo, df_gwca], ignore_index=True)
+df_all = pd.concat([df_all, df_heho, df_hocu, df_home, df_hosp], ignore_index=True)
+df_all = pd.concat([df_all, df_libo, df_peri, df_pipe, df_tapr, df_wicr], ignore_index=True)
 
-print(union_df)
-
-df_efmo = pd.read_csv("EfmoInpCenterPts.csv")
+df_all.to_csv("df_all.csv", sep=',', encoding='utf-8')
 
 
 
