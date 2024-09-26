@@ -53,11 +53,11 @@ df_data = pd.read_csv("qryexp_FieldData.csv")
 
 # Perform an inner join - need inner join to omit any mismatches
 
-df_all = df_spatial.merge(df_data, on='LocationID', how='inner')
+df_all = df_spatial.merge(df_data, on='LocationID', how='left')
 
 # include sample year
 
-df_all['SampleYear'] = pd.to_numeric(df_all['PeriodID'].str[10:14])
+df_all['SampleYear'] = df_all['PeriodID'].str[10:14]
 
 # write to file
 
